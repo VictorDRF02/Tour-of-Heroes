@@ -8,7 +8,7 @@ import { HeroService } from 'src/app/serivices/hero.service';
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  styleUrls: ['./hero-detail.component.css'],
 })
 export class HeroDetailComponent {
   hero: Hero | undefined;
@@ -25,9 +25,16 @@ export class HeroDetailComponent {
 
   getHero(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.heroService.getHero(id).subscribe(hero => this.hero = hero);
+    this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
   }
-  
+
+  save(): void {
+    if (this.hero) {
+      this.heroService.updateHero(this.hero)
+        .subscribe(() => this.goBack());
+    }
+  }
+
   goBack(): void {
     this.location.back();
   }
