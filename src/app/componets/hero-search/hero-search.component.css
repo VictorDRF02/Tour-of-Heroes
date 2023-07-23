@@ -1,14 +1,22 @@
+#search-component {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
 label {
   display: block;
   font-weight: bold;
   font-size: 1.2rem;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 input {
   padding: 0.5rem;
   width: 100%;
   max-width: 600px;
+  margin: auto;
   box-sizing: border-box;
   display: block;
 }
@@ -20,6 +28,7 @@ input:focus {
 li {
   list-style-type: none;
 }
+
 .search-result li a {
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;

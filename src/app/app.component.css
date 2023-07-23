@@ -2,14 +2,42 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+header {
+  background-color: #42545c;
+  padding: 1em;
+  margin-bottom: 0.5em;
+  display: grid;
+  grid-template-columns: auto max-content;
+}
+
+main {
+  margin: 1em;
+  margin-bottom: 80px;
+}
+
+footer {
+  padding: 0.3em;
+  background-color: #42545c;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
 h1 {
-  margin-bottom: 0;
+  color: #fff;
+  display: inline;
+  margin: auto auto auto 0.3em;
+}
+
+nav {
+  display: inline;
 }
 
 nav a {
   padding: 1rem;
   text-decoration: none;
   margin-top: 10px;
+  margin-left: 10px;
   display: inline-block;
   background-color: #e8e8e8;
   color: #3d3d3d;

@@ -1,8 +1,10 @@
 .heroes {
-  margin: 0 0 2em 0;
+  margin: 1em 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 15em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));;
+  gap: 10px;
 }
 
 input {
@@ -16,6 +18,8 @@ input {
 .heroes li {
   position: relative;
   cursor: pointer;
+  width: 15em;
+  margin: auto;
 }
 
 .heroes li:hover {
@@ -61,10 +65,36 @@ input {
   border-radius: 4px 0 0 4px;
 }
 
+button.delete {
+  position: absolute;
+  left: 210px;
+  top: 12px;
+  background-color: #42545c;
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 1px 10px 3px 10px;
+  border-radius: 5px;
+}
+
+button.delete:hover {
+  background-color: #ae0000;
+  color: white;
+}
+
+.add-hero {
+  display: grid;
+  grid-template-columns: max-content auto max-content;
+  gap: 10px;
+}
+
 .add-button {
   padding: 0.5rem 1.5rem;
   font-size: 1rem;
   margin-bottom: 2rem;
+  margin: auto;
+  border: solid #42545c;
+  border-radius: 5px;
 }
 
 .add-button:hover {
@@ -72,18 +102,19 @@ input {
   background-color: #42545c;
 }
 
-button.delete {
-  position: absolute;
-  left: 210px;
-  top: 5px;
-  background-color: white;
-  color: #525252;
-  font-size: 1.1rem;
-  margin: 0;
-  padding: 1px 10px 3px 10px;
+label {
+  margin: auto;
 }
 
-button.delete:hover {
-  background-color: #525252;
-  color: white;
+@media (max-width: 600px){
+  .add-hero {
+    display: grid;
+    grid-template-columns: max-content auto;
+    gap: 10px;
+  }
+  .add-button {
+    grid-column-start: 2;
+    width: max-content;
+    margin: 0 0 0 auto;
+  }
 }
