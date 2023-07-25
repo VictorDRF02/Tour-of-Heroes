@@ -14,6 +14,12 @@ export class MessageService {
    */
   add(message: string) {
     this.messages.push(message);
+    var messagesComponent = document.querySelector('.messages');
+    setTimeout(() => {
+      if (messagesComponent) {
+        messagesComponent.scrollTop = messagesComponent.scrollHeight;
+      }
+    }, 50);
   }
 
   /**

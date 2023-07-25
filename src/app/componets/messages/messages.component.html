@@ -1,7 +1,7 @@
-<div *ngIf="messageService.messages.length" class="footer">
+<div *ngIf="messageService.messages.length" class="footer" [@menssageBar]>
   <h2>Messages:</h2>
   <div class="messages">
-    <div *ngFor="let message of messageService.messages.reverse()">
+    <div *ngFor="let message of messageService.messages" [@enterMessage]>
       {{ message }}
     </div>
   </div>

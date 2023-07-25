@@ -9,7 +9,11 @@ h2 {
 .footer {
   display: grid;
   grid-template-columns: min-content auto min-content;
-  padding: 0.2em 0.5em;
+  width: 98%;
+  padding: 0.5em 0.8em;
+  background-color: #42545c;
+  position: fixed;
+  bottom: 0;
 }
 
 .clear {
@@ -34,4 +38,14 @@ h2 {
   overflow: auto;
   display: inline;
   max-height: 35px;
+}
+
+.messages::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: #42545c;
+  border-radius: 10px;
+  border: 2px solid #eee;
 }

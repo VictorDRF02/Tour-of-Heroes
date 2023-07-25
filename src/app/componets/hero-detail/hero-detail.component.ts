@@ -4,11 +4,29 @@ import { Location } from '@angular/common';
 
 import { Hero } from 'src/app/models/hero';
 import { HeroService } from 'src/app/serivices/hero.service';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css'],
+  animations: [
+    trigger('details', [
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'translateX(-50%)',
+        }),
+        animate(
+          250,
+          style({
+            opacity: 1,
+            transform: 'translateX(0)',
+          })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class HeroDetailComponent implements OnInit {
   hero: Hero | undefined;

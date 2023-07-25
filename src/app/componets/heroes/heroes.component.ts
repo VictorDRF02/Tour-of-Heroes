@@ -1,14 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from 'src/app/models/hero';
 import { HeroService } from 'src/app/serivices/hero.service';
-
+import { trigger, style, transition, animate } from '@angular/animations';
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css'],
+  animations: [
+    trigger('enter', [
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'translateY(-50%)',
+        }),
+        animate(
+          250,
+          style({
+            opacity: 1,
+            transform: 'translateY(0)',
+          })
+        ),
+      ]),
+      transition('* => void', [
+        style({
+          opacity: 1,
+        }),
+        animate(
+          250,
+          style({
+            opacity: 0,
+            transform: 'translateY(50%)',
+          })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
+  loading: boolean = true;
 
   constructor(private heroService: HeroService) {}
 
@@ -16,7 +46,9 @@ export class HeroesComponent implements OnInit {
    * Get the heroes
    */
   getHeroes(): void {
+    this.loading = true;
     this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
+    this.loading = false;
   }
 
   /**
